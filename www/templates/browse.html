@@ -1,0 +1,28 @@
+<ion-view view-title="Browse">
+<ion-content padding="true">
+<div class="list" ng-controller="SessionsCtrl" ng-app="ionicApp" ng-init="cost=2">
+  <b>Invoice:</b>
+  <div>
+    Quantity: <input type="number" min="0" ng-model="qty">
+  </div>
+  <div>
+    Costs: <input type="number" min="0" ng-model="cost">
+  </div>
+  <div>
+    <b>Total:</b> {{qty * cost | currency}}
+  </div>
+</ion-content>
+
+
+
+ </ion-view>
+<br>
+<br>
+<br>
+<br>
+
+ <ion-tabs class="tabs-positive">
+    <ion-tab icon="ion-search" ui-sref="search">
+      <ion-nav-view name="search"></ion-nav-view>
+    </ion-tab>
+ </ion-tabs>
