@@ -1,10 +1,8 @@
 <ion-view view-title="1. General">
  	 <ion-content padding="true">
-   		 <h1>General</h1>
 
-  		
   		<div ng-app="app">
-		<h2> Form </h2>
+		<h2>Please Fill Out the Form </h2>
 		<div ng-controller="AppCtrl as post">
 		<form  ng-submit="post.updateFactory()">
  		  <label class="item item-input">
@@ -32,12 +30,8 @@
   		    <input type="text" ng-model="post.data.address">
   		  </label>
 
-  		  <button class="button button-block button-positive" type="submit">Add Name</button>
+  		  <button class="button button-block button-positive" type="submit"> Save Data</button>
 		</form>
-
-
-		<p>Project Name is: {{post.getProjectName()}} </p>
-		<p>Date is: {{post.getDate()}} </p>
 		</div>
 	
  	 </ion-content>
