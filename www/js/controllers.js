@@ -1,60 +1,73 @@
-angular.module('starter.controllers', ['starter.services'])
+var app = angular.module('starter.controllers', ['starter.services']);
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+ app.factory('FormFactory', 
+  function FormFactory ($location) {
+  FormFactory.projectName = '';
+
+  //FormFactory.update1 = function (projectName, date, customerName, email, phone, address) {
+  FormFactory.update1 = function (data) {
+    FormFactory.projectName = data.projectName;
+    FormFactory.date = data.date;
+    FormFactory.customerName = data.customerName;
+    FormFactory.email = data.email;
+    FormFactory.phone = data.phone;
+    FormFactory.address = data.address;
+    console.log("FormFactory date: "+FormFactory.date);
+  }
+ 
+  return FormFactory;
+ });
+
+app.controller('AppCtrl', function ($scope, $ionicModal, $timeout, FormFactory) {
+  // think of the instance of the controller as a view-model
+  var vm = this;
+
+  vm.data = {};
   
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  
-  // Form data for the login modal
-  $scope.loginData = {};
+  //vm.projectName = FormFactory.projectName;
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
+  vm.updateFactory = function () {
+    //FormFactory.update1(this.projectName, this.date, this.customerName, this.email, this.phone, this.address);
+    FormFactory.update1(this.data);
+   // FormFactory.changeDate(this.date);
+    console.log("we're here");
   };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
+
+  // For Testing - we won't actually need all of these in the future
+  vm.getProjectName = function () {
+    return FormFactory.projectName;
   };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+  vm.getDate = function () {
+    return FormFactory.date;
   };
-})
-
-.controller('SessionsCtrl', function($scope, Session) {
-    $scope.sessions = Session.query();
-    $scope.qty = 2;
-})
-
-.controller('SessionCtrl', function($scope, $stateParams, Session) {
-    $scope.session = Session.get({sessionId: $stateParams.sessionId});
-})
-
-.controller('DataCtrl', function($scope){
-   $scope.apples = 1;
-   $scope.oranges = 5;
-   $scope.sum = $scope.apples + $scope.oranges;
+  vm.getEmail = function () {
+    return FormFactory.email;
+  };
+  vm.getAddress = function () {
+    return FormFactory.address;
+  };
+  vm.getCustomerName = function () {
+    return FormFactory.customerName;
+  };
+  vm.getPhone = function () {
+    return FormFactory.phone;
+  };
 
 });
+
+
+
+
+
+
+
+
+
+// for use later when having global tables 
+//starter.constant();
+
+
+
 
 

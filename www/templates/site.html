@@ -1,6 +1,20 @@
 <ion-view title="2. Project Site Data">
     <ion-content padding="true">
-      <h2>subheader</h2>
-      <p>This is where it all begins.</p>
+      <h2>Data Output</h2>
+
+      <div ng-app="app">
+ 			 <div ng-controller="AppCtrl as list">
+    	 	<p ng-repeat="message in list.formData track by $index">{{ message.id }}: {{ message.text }}</p>
+ 		 </div>
+		 </div>
+
+		<div ng-controller="AppCtrl as post">
+ 			<form ng-submit="post.addMessage(post.newMessage)">
+  			    <input type="text" ng-model="post.newMessage">
+    			<button type="submit">Add Message</button>
+  			</form>
+		</div>
+
+
     </ion-content>
  </ion-view>

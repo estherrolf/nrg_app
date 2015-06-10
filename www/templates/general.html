@@ -1,37 +1,44 @@
-<ion-view title="1. General Data">
-    <ion-content padding="true">
-    <div ng-app="ionicApp">
-     <div ng-controller="FormCtrl as list">
-      <h2>Inputs</h2>
-  		<form ng-submit="updateFruit(fruit)">
-        <div class="list">
-        Apples:
-          <label class="item item-input" >
-            <input type="number" placeholder="Apples" ng-model="fruit.apples">
-          </label>
-          Oranges:
-          <label class="item item-input">
-            <input type="number" placeholder="Oranges" ng-model="fruit.oranges">
-          </label>
-        </div>
-        <div class="padding">
-          <button type="submit" class="button button-block button-positive">Update the Fruit</button>
-        </div>
-      	</form>
-      	</div>
+<ion-view view-title="1. General">
+ 	 <ion-content padding="true">
+   		 <h1>General</h1>
 
-		<h2>Results</h2>
-      <p>This is where it all begins.</p>
-      apples: {{ apples }}
-      <br>
-      oranges: {{ oranges }}
-      <br>
-      fruit: {{apples + oranges}}
-      <br>
-      apples: <input type="number" ng-model="fruit.apples">
-      {{ fruit.apples}}
+  		
+  		<div ng-app="app">
+		<h2> Form </h2>
+		<div ng-controller="AppCtrl as post">
+		<form  ng-submit="post.updateFactory()">
+ 		  <label class="item item-input">
+  		  	<span class="input-label">Project Name</span>
+  		    <input type="text" ng-model="post.data.projectName">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">Date</span>
+  		    <input type="text" ng-model="post.data.date">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">Customer Name</span>
+  		    <input type="text" ng-model="post.data.customerName">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label"> Email</span>
+  		    <input type="text" ng-model="post.data.email">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">Phone</span>
+  		    <input type="text" ng-model="post.data.phone">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">Address</span>
+  		    <input type="text" ng-model="post.data.address">
+  		  </label>
 
-      </div>
-     </div>
-    </ion-content>
- </ion-view>
+  		  <button class="button button-block button-positive" type="submit">Add Name</button>
+		</form>
+
+
+		<p>Project Name is: {{post.getProjectName()}} </p>
+		<p>Date is: {{post.getDate()}} </p>
+		</div>
+	
+ 	 </ion-content>
+</ion-view>

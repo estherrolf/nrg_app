@@ -1,14 +1,26 @@
 <ion-view title="Output">
     <ion-content padding="true">
-      <h2>subheader</h2>
-      <p>This is where it all ends.</p>
+     <h1> General Data </h1>
+   
+      <div ng-controller="AppCtrl as post">
+    <form  ng-submit="post.changeProjectName(post.projectName2)">
+      <label class="item item-input">
+          <span class="input-label">Project Name</span>
+          <input type="text" ng-model="post.projectName2" init="post.getProjectName()">
+        </label>
 
-      apples: {{ apples }}
-      <br>
-      oranges: {{ oranges }}
-      <br>
-      fruit: {{apples + oranges}}
-      <br>
-      sum cost: {{sum | currency}}
+        <button class="button button-block button-positive" type="submit">Add Name</button>
+    </form>
+
+
+    <p>Project Name is: {{post.getProjectName()}} </p>
+    <p>Date is: {{post.getDate()}} </p>
+    <p>Email: {{post.getEmail()}} </p>
+    <p>Phone is: {{post.getPhone()}} </p>
+    <p>Address is: {{post.getAddress()}} </p>
+    <p>Customer Name is: {{post.getCustomerName()}} </p>
+    </div>
+
+        </div>      
     </ion-content> 
  </ion-view>

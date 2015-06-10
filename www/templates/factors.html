@@ -1,6 +1,19 @@
 <ion-view title="5. Factors">
     <ion-content padding="true">
       <h2>subheader</h2>
-      <p>This is where it all begins.</p>
+      <p>Things hopeflly appear in addings </p>
+
+      <form>
+        <div class="list">
+        Amount:
+          <label class="item item-input" >
+            <input type="number" placeholder={{formData.amount}} ng-model="formData.amount">
+          </label>
+         <div class="padding">
+          <button type="submit" class="button button-block button-positive">Submit</button>
+        </div>
+      	</form>
+
+      	{{formData}}
     </ion-content>
  </ion-view>

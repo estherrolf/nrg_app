@@ -1,0 +1,37 @@
+<ion-view title="1. General Data">
+    <ion-content padding="true">
+    <div ng-app="ionicApp">
+      <h2>Inputs</h2>
+        <form ng-submit="updateFruit(fruit)">
+        <div class="list">
+        Apples:
+          <label class="item item-input" >
+            <input type="number" placeholder="Apples" ng-model="list.apples">
+          </label>
+          Oranges:
+          <label class="item item-input">
+            <input type="number" placeholder="Oranges" ng-model="fruit.oranges">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Update the Fruit</button>
+        </div>
+        </form>
+        
+
+        <h2>Results</h2>
+      <p>This is where it all begins.</p>
+      apples: {{ apples }}
+      <br>
+      oranges: {{ oranges }}
+      <br>
+      fruit: {{apples + oranges}}
+      <br>
+      apples: <input type="number" ng-model="fruit.apples">
+      
+      {{list.apples}}
+
+      </div>
+     
+    </ion-content>
+ </ion-view>
