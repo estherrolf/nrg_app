@@ -1,6 +1,103 @@
-<ion-view title="3. Client Data">
-    <ion-content padding="true">
-      <h2>subheader</h2>
-      <p>This is where it all begins.</p>
-    </ion-content>
- </ion-view>
+<ion-view view-title="3. Client Data">
+ 	 <ion-content padding="true">
+
+  		<div ng-app="app">
+		<h2>Please Fill Out the Form </h2>
+		<div ng-controller="AppCtrl as post">
+		<form  ng-submit="post.updateFactory3()">
+ 		  <label class="item item-input item-select">
+  		  	<span class="input-label">1. System</span>
+  		    <select ng-model="post.data.system" required>
+  		    	<option>On-Grid</option>
+  		    	<option>Back-Up</option>
+  		    	<option>Off-Grid</option>
+  		    </select>
+  		  </label>
+  		  <label class="item item-input item-select">
+  		  	<span class="input-label">2. Building Type</span>
+  		    <select ng-model="post.data.buildingType">
+  		    	<option>Factory</option>
+  		    	<option>Hotel</option>
+  		   		<option>House</option>
+  		    	<option>Library</option>
+  		    	<option>School</option>
+  		    	<option>Other</option>
+  		    </select>
+  		  </label>
+  		  <label class="item item-input item-select">
+  		  	<span class="input-label">3. Grid</span>
+  		    <select ng-model="post.data.Grid">
+  		    	<option>Yes</option>
+  		    	<option>No</option>
+  		    </select>
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">&nbsp 3.1 Monthly Bill</span>
+  		    $&nbsp<input type="text" ng-model="post.data.monthlyBill" format="number">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">&nbsp 3.2 Cost per kW.h</span>
+  		    $&nbsp<input type="text" ng-model="post.data.cost" format="number">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label">&nbsp 3.3 Distance to the Grid (m)</span>
+  		    <input type="number" ng-model="post.data.distanceToGrid">
+  		  </label>
+  		  <label class="item item-input item-select">
+  		  	<span class="input-label">4. Solar System</span>
+  		    <select ng-model="post.data.solarSystem" id="solarConditional">
+  		    	<option>Yes</option>
+  		    	<option>No</option>
+  		    </select>
+  		  </label>
+  		  <div ng-show="(post.data.solarSystem === 'Yes')">
+  		  	<label class="item item-input">
+  		  		<span class="input-label">&nbsp 4.1 Solar Array (Wp)</span>
+  		  		<input type="text" ng-model="post.data.solarArray">
+  		  	</label>
+  		  	<label class="item item-input">
+  		  		<span class="input-label">&nbsp 4.2 Battery Bank (kW.h) </span>
+  		  		<input type="text" ng-model="post.data.batteryBank">
+  		  	</label>
+  		  </div>
+  		  <label class="item item-input item-select">
+  		  	<span class="input-label"> 5. Diesel Generator </span>
+  		    <select ng-model="post.data.dieselGenerator">
+  		    	<option>Yes</option>
+  		    	<option>No</option>
+  		    </select>
+  		  </label>
+  		  <div ng-show="(post.data.dieselGenerator === 'Yes')">
+	  		  <label class="item item-input">
+	  		  	<span class="input-label">&nbsp 5.1 Consumption (L) </span>
+	  		    <input type="text" ng-model="post.data.consumption">
+	  		  </label>
+	  		  <label class="item item-input">
+	  		  	<span class="input-label">&nbsp 5.2 Power (kVA) </span>
+	  		    <input type="text" ng-model="post.data.power">
+	  		  </label>
+  		  </div>
+  		  <label class="item item-input">
+  		  	<span class="input-label"> 6. Reason for Solar </span>
+  		    <input type="text" ng-model="post.data.reason">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label"> 7. Priorities for Solar </span>
+  		    <input type="text" ng-model="post.data.priorities">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label"> 8. Planning </span>
+  		    <input type="text" ng-model="post.data.planning">
+  		  </label>
+  		  <label class="item item-input">
+  		  	<span class="input-label"> 9. Comment </span>
+  		    <input type="text" ng-model="post.data.commentClient">
+  		  </label>
+
+
+  		  <button class="button button-block button-positive" type="submit"> Save Data</button>
+		</form>
+		</div>
+	
+ 	 </ion-content>
+</ion-view>

@@ -4,29 +4,29 @@
   		<div ng-app="app">
 		<h2>Please Fill Out the Form </h2>
 		<div ng-controller="AppCtrl as post">
-		<form  ng-submit="post.updateFactory()">
+		<form  ng-submit="post.updateFactory1()">
  		  <label class="item item-input">
-  		  	<span class="input-label">Project Name</span>
-  		    <input type="text" ng-model="post.data.projectName">
+  		  	<span class="input-label">1. Project Name</span>
+  		    <input type="text" ng-model="post.data.projectName" required>
   		  </label>
   		  <label class="item item-input">
-  		  	<span class="input-label">Date</span>
+  		  	<span class="input-label">2. Date</span>
   		    <input type="text" ng-model="post.data.date">
   		  </label>
   		  <label class="item item-input">
-  		  	<span class="input-label">Customer Name</span>
+  		  	<span class="input-label">3. Customer Name</span>
   		    <input type="text" ng-model="post.data.customerName">
   		  </label>
   		  <label class="item item-input">
-  		  	<span class="input-label"> Email</span>
+  		  	<span class="input-label">4. Email</span>
   		    <input type="text" ng-model="post.data.email">
   		  </label>
   		  <label class="item item-input">
-  		  	<span class="input-label">Phone</span>
+  		  	<span class="input-label">5. Phone</span>
   		    <input type="text" ng-model="post.data.phone">
   		  </label>
   		  <label class="item item-input">
-  		  	<span class="input-label">Address</span>
+  		  	<span class="input-label">6. Address</span>
   		    <input type="text" ng-model="post.data.address">
   		  </label>
 

@@ -48,14 +48,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ui.router'])
     }
 })
 
-// .state('app.client', {
-//     url: "/client",
-//     views: {
-//         'menuContent': {
-//           templateUrl: "templates/client.html",
-//       }
-//     }
-// })
+.state('app.client', {
+    url: "/client",
+    views: {
+        'menuContent': {
+          templateUrl: "templates/client.html",
+      }
+    }
+})
 
 // .state('app.consumption', {
 //     url: "/consumption",

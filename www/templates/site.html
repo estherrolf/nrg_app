@@ -1,20 +1,104 @@
-<ion-view title="2. Project Site Data">
-    <ion-content padding="true">
-      <h2>Data Output</h2>
+<ion-view view-title="2. Project Site Data">
+<ion-content padding="true">
 
-      <div ng-app="app">
- 			 <div ng-controller="AppCtrl as list">
-    	 	<p ng-repeat="message in list.formData track by $index">{{ message.id }}: {{ message.text }}</p>
- 		 </div>
-		 </div>
+<div ng-app="app">
+	<h2>Please Fill Out the Form </h2>
+	<div ng-controller="AppCtrl as post">
+		<form  ng-submit="post.updateFactory2()">
 
-		<div ng-controller="AppCtrl as post">
- 			<form ng-submit="post.addMessage(post.newMessage)">
-  			    <input type="text" ng-model="post.newMessage">
-    			<button type="submit">Add Message</button>
-  			</form>
-		</div>
+			<label class="item">
+				<span class="input-label">1. Address (skipping for now b/c possible duplicate)</span>
+			</label>
+			<!-- we want this to be a dropdown -->
+			<!-- we also want this to autofill things -->
+			<label class="item item-input">
+				<span class="input-label">2. City</span>
+				<input type="text" ng-model="post.data.city">
+			</label>
+			<!-- Fix the meters (m) display -->
+			<label class="item item-input">
+				<span class="input-label">3. Altitude (m)</span>
+				<input type="text" ng-model="post.data.altitude">
+			</label>
+			<!-- Fix the celcius thing -->
+			<label class="item item-input">
+				<span class="input-label">4.  Temperature (c)</span>
+				<input type="text" ng-model="post.data.temperature"> 
+			</label>
+
+			
+
+			<div ng-repeat="roof in post.data.roofs">
+				<label class="">
+					<h4 align="center"> Roof {{roof.id[4]}}</h4>  <!-- index 4 b/c want number X in "roofX" -->
+				</label>
+
+				<label class="item item-input">
+					<span class="input-label">5.1 Surface (m-squared)</span>
+					<input type="text" ng-model="roof.surface"> <!--fyi:  the roof here refers to roof in post.data.roofs", that's why not "data.roof" -->
+				</label>
+
+				<label class="item item-input item-select">
+					<span class="input-label">5.2 Slope</span>
+					<select ng-model="roof.slope">
+						<option>Flat</option>
+						<option>Picthed</option> 
+					</select>
+				</label>
+
+				<label class="item item-input">
+					<span class="input-label">5.3 Material</span>
+					<input type="text" ng-model="roof.material"> 
+				</label>
+
+				<label class="item item-input item-select">
+					<span class="input-label">5.4 Orientation</span>
+					<select ng-model="roof.orientation"> 
+						<option>South</option>
+						<option>South West</option>
+						<option>West</option>
+						<option>North West</option>
+						<option>North</option>
+						<option>North East</option>
+						<option>East</option>
+						<option>South East</option>
+					</select>
+				</label>
+
+				<label class="item item-input">
+					<span class="input-label">5.5 Shades</span>
+					<input type="text" ng-model="roof.shades"> 
+				</label>
+			</div> <!-- end of roof repeat --> 
+
+			<button type="button" class="button button-block button-balanced" ng-click="post.addNewRoof()"> Add another roof</button>
+
+			<br>
+			<label class="item item-input item-select">
+				<span class="input-label">6. Panel Type</span>
+				<select ng-model="roof.panelType" ng-init=" roof.panelType = roof.panelType || 'Polycristallines'">
+					<option>Monocristallines</option>
+					<option>Amorphs</option>
+					<option selected>Polycristallines</option>
+				</select>
+			</label>
 
 
-    </ion-content>
- </ion-view>
+		</form>
+		<br>
+		<!-- figure out how to make the comments look pretty -->
+		<label class="item item-input">
+			<span class="input-label">7. Comment <br></span>
+			<br>
+			<input type="text" ng-model="post.data.commentSite">
+		</label>
+
+
+		<button type="submit" ng-click="post.updateFactory2()" class="button button-block button-positive" type="submit"> Save Data</button>
+	</form>
+	<p> {{roofs[0].id }}</p>
+
+</div> 
+</div>
+</ion-content>
+</ion-view>

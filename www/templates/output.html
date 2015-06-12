@@ -1,9 +1,10 @@
 <ion-view title="Output">
     <ion-content padding="true">
-     <h2> General Data </h2>
+     
    
       <div ng-controller="AppCtrl as post">
 
+    <h2> General Data </h2>
 
     <p>Project Name is: {{post.getProjectName()}} </p>
     <p>Date is: {{post.getDate()}} </p>
@@ -11,6 +12,11 @@
     <p>Phone is: {{post.getPhone()}} </p>
     <p>Address is: {{post.getAddress()}} </p>
     <p>Customer Name is: {{post.getCustomerName()}} </p>
+
+    <h2> Bill consumption  </h2>
+
+    <p>Bill Consumption is: {{post.getBillConsumption()}} % </p>
+
     </div>
 
         </div>      
